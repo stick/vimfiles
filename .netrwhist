@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/cmacleod/repos/puppet-cfg/manifests/nodes/job01.dw.stage.int.phx2.redhat.com'
+let g:netrw_dirhist_2='/home/cmacleod/repos/puppet-cfg/manifests/nodes/db01.web.prod.ext.phx2.redhat.com'
+let g:netrw_dirhist_3='/home/cmacleod/repos/puppet-cfg/modules/oracle/data'
+let g:netrw_dirhist_4='/tmp/news/files'
+let g:netrw_dirhist_5='/home/cmacleod/repos/puppet-cfg/manifests/nodes/puppet01.util.phx1.redhat.com'
+let g:netrw_dirhist_6='/home/cmacleod/repos/bootstrap/plugins'
+let g:netrw_dirhist_7='/home/cmacleod/repos/puppet-cfg/modules/dns/manifests/slave'
+let g:netrw_dirhist_8='/home/cmacleod/repos/puppet-cfg/manifests/nodes/slave01.dns.dev.int.phx1.redhat.com'
+let g:netrw_dirhist_9='/home/cmacleod/repos/puppet-cfg/manifests/nodes/slave01.dns.dev.ext.phx1.redhat.com'
