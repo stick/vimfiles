@@ -129,8 +129,8 @@ set pastetoggle=<C-E>
 
 " current edge version stuff
 if v:version >= 703
-  set norelativenumber
-  set undofile
+  set norelativenumber " number the file based on relative position, neat but distracting 
+  set noundofile " this creates undo droppings 
 endif
 
 
