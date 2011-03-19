@@ -1,2 +1,2 @@
 " twiki filetype file
-au BufRead,BufNewFile *.twiki             setfiletype twiki
+au BufRead,BufNewFile *.twiki setfiletype twiki
