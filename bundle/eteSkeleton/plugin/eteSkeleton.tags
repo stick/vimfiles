@@ -1,0 +1,13 @@
+" Make sure anything doesn't return newlines
+" the right-hand-side of the = is passed to s#{lhs}#{rhs}#g
+author=expand("$USER")
+date=strftime("%Y\\/%m\\/%d")
+squash_date=strftime("%Y%m%d")
+filename=expand('%:t')
+filename_noext=expand('%:t:r')
+" Enter string for 'ask' token: 
+ask=inputdialog(getline("."))
+" Version?
+version="1.0.0"
+askversion=inputdialog("Version? ","1.0.0")
+modulename=system('pwd') " write somethere here to decode the path into puppet namespacing

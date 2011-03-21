@@ -114,8 +114,8 @@ set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 let &titleold=getcwd()
 
 " Appends / insert current date
-nmap <Leader>d "=strftime("%Y-%m-%d")<CR>p
-nmap <Leader>D "=strftime("%Y%m%d")<CR>P
+nmap <Leader>_d "=strftime("%Y-%m-%d")<CR>p
+nmap <Leader>_D "=strftime("%Y%m%d")<CR>P
 
 " surround maps
 nmap <Leader>{ ysiw{

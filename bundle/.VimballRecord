@@ -1,0 +1,1 @@
+eteSkeleton.vba: call delete('/Users/cmacleod/.vim/bundle/eteSkeleton/plugin/eteSkeleton.vim')|call delete('/Users/cmacleod/.vim/bundle/eteSkeleton/plugin/eteSkeleton.tags')|call delete('/Users/cmacleod/.vim/bundle/eteSkeleton/doc/eteSkeleton.txt')
