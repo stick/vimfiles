@@ -57,6 +57,9 @@ Once the skeleton is loaded, the tags in the "test_script.py" file will be
 replaced by the tags in eteSskeleton.tags (which are located in the plugin 
 directory).
 
+if you define g:EteSkeleton_loosefiletype = 1 loose filetype matching will be
+enabled. test.py would match test_python as well as test_script.py.
+
 ==============================================================================
 USAGE                                                   *eteSkeleton-usage*
 

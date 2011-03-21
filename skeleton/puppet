@@ -1,10 +1,4 @@
-class <modulename> {
-  <author>
-  <squash_date>
-  <filename>
-  <version>
-  <modulename>
-  <filename_noext>
-  <askversion>
-}
+class <modulename><classexpand> {
 
+
+}

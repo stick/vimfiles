@@ -32,6 +32,10 @@ let s:ETES_SKELETONS = "skeleton"
 let s:ETES_TAGS = globpath(&rtp,"plugin/eteSkeleton.tags")
 set cpo&vim
 
+if !exists("g:EteSkeleton_loosefiletype")
+    let g:EteSkeleton_loosefiletype = 0
+endif
+
 command! -nargs=0 EteSkeleton call s:eteSkeleton_get()
 command! -nargs=0 EteSkelList call s:eteSkeleton_list()
 command! -nargs=1 EteSkelAdd call s:eteSkeleton_add(<q-args>)
@@ -107,7 +111,11 @@ fu! s:eteSkeleton_replace()
     endfor
 endfu
 fu! s:eteSkeleton_get()
-    let l:fname = expand("%:r")
+    if g:EteSkeleton_loosefiletype
+      let l:fname = expand("%:t:r") . "_" . &l:filetype
+    else
+      let l:fname = expand("%:t:r")
+    endif
     let l:rlist = sort(map(split(globpath(&rtp, s:ETES_SKELETONS."/*".
                 \&l:filetype."*"),"\n"),'fnamemodify(v:val,":t")'), "s:msort")
     for l:item in l:rlist

@@ -10,4 +10,7 @@ ask=inputdialog(getline("."))
 " Version?
 version="1.0.0"
 askversion=inputdialog("Version? ","1.0.0")
-modulename=system('pwd') " write somethere here to decode the path into puppet namespacing
+" change to use fname modify
+modulename=fnamemodify(getcwd(), ":t")
+" modulename=substitute(expand(system('basename $PWD')), "\n", "", "")
+classexpand=substitute(substitute(expand("%:r"), "/", "::", "g"), "manifests", "", "")
