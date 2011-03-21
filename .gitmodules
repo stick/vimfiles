@@ -22,3 +22,4 @@
 [submodule "bundle/VisIncr"]
 	path = bundle/VisIncr
 	url = https://github.com/vim-scripts/VisIncr.git
+  ignore = untracked
