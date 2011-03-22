@@ -49,7 +49,6 @@ set autoread            " auto read in files that have changed underneath
 nnoremap / /\v
 vnoremap / /\v
 cnoremap %s/ %s/\v
-cnoremap s/ s/\v
 
 " map <space> to disable highlight easily
 nnoremap <leader><space> :noh<cr>
