@@ -159,3 +159,6 @@ let g:Twiki_Mapings = '1'
 " allow loose skeleton matching for templates
 " ie init.pp (a puppet filetype) will match init_puppet
 let g:EteSkeleton_loosefiletype = 1
+
+" DNSTools
+let g:dnstools_prompt_replacement = 0
