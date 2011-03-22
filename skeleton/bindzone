@@ -1,0 +1,15 @@
+; zone file for <filename_noext>
+$TTL 1h
+$ORIGIN <filename_noext>.
+@    1D       IN      SOA   rdu-dns01.<tld>. netops.<tld>. (
+              2011032202 ; serial
+              3h         ; Refresh after 3 hours
+              1h         ; Retry after 1 hour
+              4w         ; Expire after 4 weeks
+              1h         ; Negative caching TTL of 1 hour
+                                                                     )
+$INCLUDE ns-servers.include
+$INCLUDE mx-servers.include
+
+;
+; A records and CNAME records for $ORIGIN
