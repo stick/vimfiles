@@ -1,2 +1,0 @@
-@@IF not cfrole_no_nfs_mounts
-@@ENDIF not cfrole_no_nfs_mounts
