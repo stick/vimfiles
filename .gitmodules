@@ -34,3 +34,7 @@
 	path = bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
   ignore = untracked
+[submodule "bundle/vim-dnstools"]
+	path = bundle/vim-dnstools
+	url = https://github.com/Finkregh/vim-dnstools.git
+  ignore = untracked
