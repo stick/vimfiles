@@ -72,7 +72,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " map to remove trailing whitespace from lines
-noremap <leader>l :silent %s/ $//<cr>
+noremap <leader>l :silent %s/ $//g<cr>
 
 
 " use white background in GUI-Mode, black on console
