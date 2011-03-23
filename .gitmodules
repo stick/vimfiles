@@ -37,3 +37,6 @@
 [submodule "bundle/eteSkeleton"]
 	path = bundle/eteSkeleton
 	url = git@github.com:stick/eteSkeleton.git
+[submodule "bundle/vim-dnstools"]
+	path = bundle/vim-dnstools
+	url = git@github.com:stick/eteSkeleton.git
