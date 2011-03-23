@@ -14,7 +14,7 @@ call pathogen#helptags()  " generate helptag documentation for any existing bund
 " enable filetype and plugins
 filetype on
 filetype indent on
-filetype plugin on 
+filetype plugin on
 filetype plugin indent on
 
 " set options here
@@ -70,6 +70,9 @@ set splitright 		" a new vertical window is right of the current one
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" map to remove trailing whitespace from lines
+noremap <leader>l :silent %s/ $//<cr>
 
 
 " use white background in GUI-Mode, black on console
@@ -129,8 +132,8 @@ set pastetoggle=<C-E>
 
 " current edge version stuff
 if v:version >= 703
-  set norelativenumber " number the file based on relative position, neat but distracting 
-  set noundofile " this creates undo droppings 
+  set norelativenumber " number the file based on relative position, neat but distracting
+  set noundofile " this creates undo droppings
 endif
 
 
@@ -162,3 +165,7 @@ let g:EteSkeleton_loosefiletype = 1
 
 " DNSTools
 let g:dnstools_prompt_replacement = 0
+
+" set statusline to always be present see plugin/statusline.vim for actual
+" setting of the statusline
+set laststatus=2
