@@ -60,9 +60,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 set nomousefocus        " focus does not follow mouse
-set wh=1 		" minimal number of lines used for the current window
-set wmh=1 		" minimal number of lines used for any window
-set equalalways 	" make all windows the same size when adding/removing windows
+" set wh=1 		" minimal number of lines used for the current window
+" set wmh=1 		" minimal number of lines used for any window
+" set equalalways 	" make all windows the same size when adding/removing windows
 set splitbelow 		" a new window is put below the current one
 set splitright 		" a new vertical window is right of the current one
 
@@ -171,12 +171,16 @@ let g:dnstools_prompt_replacement = 0
 set laststatus=2
 
 " ctags
-set tags=./tags;   " allows recursing upwards to project roots
+" set tags=./tags;   " allows recursing upwards to project roots
 
 " open vimrc in new vsplit for quick config changes
-nmap <leader>v :vnew ~/.vimrc<cr>
+nmap <leader>v :tabnew ~/.vimrc<cr>
 " auto source it on save
 autocmd! bufwritepost .vimrc source %
 
 " enable matchit which ships with vim but isn't turned on
 source $VIMRUNTIME/macros/matchit.vim
+
+" settings for taglist
+let tlist_puppet_settings='puppet;c:class;d:define;s:site'
+nnoremap <silent><leader>t :TlistToggle<CR>
