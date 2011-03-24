@@ -169,3 +169,14 @@ let g:dnstools_prompt_replacement = 0
 " set statusline to always be present see plugin/statusline.vim for actual
 " setting of the statusline
 set laststatus=2
+
+" ctags
+set tags=./tags;   " allows recursing upwards to project roots
+
+" open vimrc in new vsplit for quick config changes
+nmap <leader>v :vnew ~/.vimrc<cr>
+" auto source it on save
+autocmd! bufwritepost .vimrc source %
+
+" enable matchit which ships with vim but isn't turned on
+source $VIMRUNTIME/macros/matchit.vim
