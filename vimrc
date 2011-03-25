@@ -184,3 +184,6 @@ source $VIMRUNTIME/macros/matchit.vim
 " settings for taglist
 let tlist_puppet_settings='puppet;c:class;d:define;s:site'
 nnoremap <silent><leader>t :TlistToggle<CR>
+
+" set supertab to do context based completion
+let g:SuperTabDefaultCompletionType = "context"
