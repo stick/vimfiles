@@ -41,7 +41,7 @@ snippet [
 snippet >
 	${1}	=> ${2}
 snippet p:
-	"puppet:///modules/${module_name}/${2:file name}"
+	"puppet:///modules/${module_name}/${1:file name}"
 snippet content
 	content	=> template("${module_name}/${1:file name}"),
 #
