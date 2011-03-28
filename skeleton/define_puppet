@@ -1,0 +1,26 @@
+# <define>
+#
+# == Parameters
+#
+# Document parameters here
+#
+# [*namevar*]
+#   Always document namevar
+#
+# [*sample_bar*]
+#   Description of this variable.
+#
+# == Examples
+#
+# Provide some examples on how to use this type:
+#
+#   <modulename><classexpand>::<define> {
+#     "namevar":
+#       sample_param => "value",
+#   }
+#
+define <modulename><classexpand>::<define>
+($example_var) {
+
+
+}
