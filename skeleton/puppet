@@ -1,10 +1,34 @@
-/*
-
-Class: <modulename><classexpand>
-
-Parameters: None
-
-*/
+# Class: <modulename><classexpand>
+#
+# == Parameters
+#
+# Document parameters here
+#
+# [*sample_bar*]
+#   Description of this variable.
+#
+# == Variables
+#
+# Here you should define a list of variables that this module would require.
+#
+# [*$foo_var*]
+#     Description of this variable
+#
+# == Examples
+#
+# Put some examples on how to use your class here.
+#
+#   $example_var = "blah"
+#   include <modulename><classexpand>
+#
+# == Authors
+#
+# <fullname> <<email_address>>
+#
+# == Copyright
+#
+# Copyright <year> <company_name>, unless otherwise noted.
+#
 
 class <modulename><classexpand> {
 

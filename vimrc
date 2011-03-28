@@ -4,6 +4,7 @@ let mapleader = ','
 " Variables for template interpolation
 let email_address = "cmacleod@airdat.com"
 let fullname = "Chris MacLeod"
+let company_name = "Airdat LLC"
 let template_date_format_string = "%a %b %d %Y"
 
 " pathogen is a plugin for managing plugins as bundles
@@ -40,6 +41,7 @@ set hlsearch		" highlight search on by default
 
 set noincsearch		" move curser as you type search terms
 set autoread            " auto read in files that have changed underneath
+set shellcmdflag=-ic  " set the ! shell to be interactive to get at functions and aliases
 
 " don't remove indents for comments
 "inoremap # X#
@@ -72,7 +74,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " map to remove trailing whitespace from lines
-noremap <leader>l :silent %s/ $//g<cr>
+noremap <leader>l :silent %s/ +$//g<cr>
 
 
 " use white background in GUI-Mode, black on console
@@ -127,7 +129,7 @@ nmap <Leader>" ysiw"
 nmap <Leader>' ysiw'
 
 " Paste mode
-nnoremap <C-E>  :set invpaste paste?<CR>
+nnoremap <C-E>  :silent! set invpaste<CR>
 set pastetoggle=<C-E>
 
 " current edge version stuff
@@ -174,7 +176,7 @@ set laststatus=2
 " set tags=./tags;   " allows recursing upwards to project roots
 
 " open vimrc in new vsplit for quick config changes
-nmap <leader>v :tabnew ~/.vimrc<cr>
+nmap <leader>v :tabnew ~/.vimrc<cr>:lcd ~/.vim<cr>
 " auto source it on save
 autocmd! bufwritepost .vimrc source %
 
