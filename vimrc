@@ -74,7 +74,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " map to remove trailing whitespace from lines
-noremap <leader>l :silent %s/ +$//g<cr>
+noremap <leader>l :silent %s/\v\s+$//g<cr>
 
 
 " use white background in GUI-Mode, black on console
@@ -189,3 +189,9 @@ nnoremap <silent><leader>t :TlistToggle<CR>
 
 " set supertab to do context based completion
 let g:SuperTabDefaultCompletionType = "context"
+
+" map the align command to align fat comma's, do need to visual select first
+vmap <LEADER>= :Align =><CR>
+
+" lazy git commit
+nmap <LEADER>g :Gcommit<CR>
