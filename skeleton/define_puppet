@@ -2,17 +2,13 @@
 #
 # == Parameters
 #
-# Document parameters here
-#
 # [*namevar*]
 #   Always document namevar
 #
 # [*sample_bar*]
-#   Description of this variable.
+#   Description of this parameter.
 #
 # == Examples
-#
-# Provide some examples on how to use this type:
 #
 #   <modulename><classexpand>::<define> {
 #     "namevar":
@@ -20,7 +16,9 @@
 #   }
 #
 define <modulename><classexpand>::<define>
-($example_var) {
+(
+  $example_var
+) {
 
 
 }

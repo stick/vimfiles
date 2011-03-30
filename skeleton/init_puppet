@@ -2,21 +2,15 @@
 #
 # == Parameters
 #
-# Document parameters here
-#
 # [*sample_bar*]
-#   Description of this variable.
+#   Description of this parameter.
 #
 # == Variables
-#
-# Here you should define a list of variables that this module would require.
 #
 # [*$foo_var*]
 #     Description of this variable
 #
 # == Examples
-#
-# Put some examples on how to use your class here.
 #
 #   $example_var = "blah"
 #   include <modulename>
@@ -29,7 +23,6 @@
 #
 # Copyright <year> <company_name>, unless otherwise noted.
 #
-
 class <modulename> {
 
 

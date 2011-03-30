@@ -173,7 +173,7 @@ let g:dnstools_prompt_replacement = 0
 set laststatus=2
 
 " ctags
-" set tags=./tags;   " allows recursing upwards to project roots
+set tags=./tags;   " allows recursing upwards to project roots
 
 " open vimrc in new vsplit for quick config changes
 nmap <leader>v :tabnew ~/.vimrc<cr>:lcd ~/.vim<cr>
