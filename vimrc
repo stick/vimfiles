@@ -1,6 +1,9 @@
 " map leader (defaults to \)
 let mapleader = ','
 
+" set colorscheme
+colorscheme ir_black
+
 " Variables for template interpolation
 let email_address = "cmacleod@airdat.com"
 let fullname = "Chris MacLeod"
@@ -19,29 +22,35 @@ filetype plugin on
 filetype plugin indent on
 
 " set options here
-set ai			" auto indend
-set si			" smart indent
-set ff=unix		" file format unix dammit
-set nocompatible	" nocompatible mode
-set ruler		" ruler the bottom
+set ai           " auto indend
+set si           " smart indent
+set ff=unix      " file format unix dammit
+set nocompatible " nocompatible mode
+set ruler        " ruler the bottom
 
-set tabstop=2		" define what our tabs are
-set expandtab           " expand tabs to spaces
-set shiftwidth=2	" # of spaces for auto indent
-set smarttab		" smart tab (shiftwidth v tabstop)
-set tw=0		" no textwidth set by default
-set modeline            " enable modelines
-set modelines=1         " number of modelines to read
-set tildeop 		" case change with movement rather than single char
+set expandtab     " expand tabs to spaces
+set tabstop=2     " define what our tabs are
+set softtabstop=2 " soft tabstop
+set shiftwidth=2  " # of spaces for auto indent
+set smarttab      " smart tab (shiftwidth v tabstop)
+set tw=0          " no textwidth set by default
+set modeline      " enable modelines
+set modelines=1   " number of modelines to read
+set tildeop       " case change with movement rather than single char
 
-set showmatch 		" show matching brackets
-set mat=5 		" how many tenths of a second to blink matching brackets for
+set showmatch       " show matching brackets
+set matchtime=5     " how many tenths of a second to blink matching brackets for
+set matchpairs+=<:> " add '<' and '>' to matching
 
 set hlsearch		" highlight search on by default
 
 set noincsearch		" move curser as you type search terms
 set autoread            " auto read in files that have changed underneath
-set shellcmdflag=-ic  " set the ! shell to be interactive to get at functions and aliases
+set shellcmdflag=-lc  " set the ! shell to be a login shell to get at functions and aliases
+
+set listchars=nbsp:¶,eol:¬,tab:>-,extends:»,precedes:«,trail:• " characters to use for 'specical' characters and non-printables
+set colorcolumn=80    " highlight the 80th column
+
 
 " don't remove indents for comments
 "inoremap # X#
@@ -53,7 +62,7 @@ vnoremap / /\v
 cnoremap %s/ %s/\v
 
 " map <space> to disable highlight easily
-nnoremap <leader><space> :noh<cr>
+nnoremap <silent><leader><space> :noh<cr>
 
 " window settings and maps
 nnoremap <leader>w :vnew<CR><C-w>l
@@ -74,18 +83,16 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " map to remove trailing whitespace from lines
-noremap <leader>l :silent %s/\v\s+$//g<cr>
+nnoremap <silent><leader>l :%s/\v\s+$//g<cr>
+nnoremap <silent><Leader>i :set invlist<CR>
 
 
-" use white background in GUI-Mode, black on console
+" gui vs console settings
+" gui settings go in ~/.gvimrc
 if has("gui_running")
-    set bg=light
-    syntax on
-" trying default colouring see if it isn't too dark
-"else
+else
     "set bg=dark
 endif
-
 
 " turn on syntax if we are in a color terminal
 if &t_Co > 1
@@ -96,25 +103,19 @@ endif
 vnoremap . :normal .<CR>
 
 " xterm specifics
-if &term == "xterm"
+if &term =~ "xterm"
     set title
     set t_kb=
     fixdel
 endif
 
-" xterm specifics
-if &term == "xterm-color"
-    set title
-    set t_kb=
-    fixdel
-endif
-"
 " set title for screen
-if &term == "screen"
+if &term =~ "screen"
   set t_ts=k
   set t_fs=\
   set title
 endif
+
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 let &titleold=getcwd()
 
