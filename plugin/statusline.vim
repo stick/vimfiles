@@ -1,7 +1,7 @@
 
 " standard colorings for the statusline
-highlight StatusLine ctermfg=black ctermbg=lightgreen cterm=NONE
-highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
+" highlight StatusLine ctermfg=black ctermbg=lightgreen cterm=NONE
+" highlight StatusLineNC ctermfg=black ctermbg=lightblue cterm=NONE
 
 " {{{ Nice statusbar
 "statusline setup
@@ -25,6 +25,9 @@ set statusline+=%m      "modified flag
 " display current git branch
 set statusline+=%{fugitive#statusline()}
 
+" display long line warnings
+set statusline+=%{StatuslineLongLineWarning()}
+
 "display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
@@ -39,6 +42,11 @@ set statusline+=%*
 "display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
+set statusline+=%*
+"
+"display if we are in list mode (invisibles)
+set statusline+=%#error#
+set statusline+=%{&list?'[list]':''}
 set statusline+=%*
 
 set statusline+=%=      "left/right separator
@@ -85,7 +93,7 @@ function! StatuslineTabWarning()
         if tabs && spaces
             let b:statusline_tab_warning =  '[mixed-indenting]'
         elseif (spaces && !&et) || (tabs && &et)
-            let b:statusline_tab_warning = '[&et]'
+            let b:statusline_tab_warning = '[&expandtab]'
         else
             let b:statusline_tab_warning = ''
         endif
@@ -118,7 +126,11 @@ endfunction
 
 "return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
+    if !exists("g:long_line_length")
+      let g:long_line_length = 80
+    end
+
+    let threshold = (&tw ? &tw : g:long_line_length)
     let spaces = repeat(" ", &ts)
 
     let long_line_lens = []
