@@ -34,4 +34,3 @@ set lines=50
 " Tab headings
 set gtl=%t gtt=%F
 
-highlight Normal guifg=white guibg=black
