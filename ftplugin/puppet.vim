@@ -1,22 +1,44 @@
 " Vim filetype plugin
 " Language:     Puppet
-" Maintainer:   Todd Zullinger <tmz@pobox.com>
-" Last Change:  2009 Aug 19
+" Original Maintainer:   Todd Zullinger <tmz@pobox.com>
+" Modifications: Chris MacLeod <stick at miscellaneousnet dot net>
+" Last Change:  2011-04-03
 " vim: set sw=4 sts=4:
-
-
-" set keyword program
-setlocal keywordprg=pi
-" add : <colon> as a word keyword
-" this affects w/W but importantly allows you tag jump off something like ssh::server::addkey 
-" use += to add to the normal entry so we don't mess with defaults
-setlocal iskeyword+=:
-
 
 if exists("b:did_ftplugin")
     finish
 endif
 let b:did_ftplugin = 1
+
+" set keyword program
+setlocal keywordprg=pi
+
+" add : <colon> as a word keyword
+setlocal iskeyword+=:
+
+" The assumption is that each module is a repo
+" modulename = git rev-parse --show-toplevel (full path so needs a dirname)
+" autoloader = git rev-parse --show-prefix (will include manifests dir)
+" we set these as buffer scope so they can have different values per file
+" I use in templates but may be useful during editing or whatever
+
+" define array for autoloader
+let b:autoloader_path = []
+
+" get the module name
+let b:module_name = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":t")
+call add(b:autoloader_path, b:module_name)
+
+" relative position to top of the repo - minus manifests
+let b:autoloader_prefix = split(fnamemodify(system("git rev-parse --show-prefix")[:-2], ":s?manifests??"), '/')
+let b:autoloader_path += b:autoloader_prefix
+
+" get the filename no ext
+let b:classname = expand("%:r")
+call add(b:autoloader_path, b:classname)
+
+" classpath is a string of it all
+let b:classpath = join(b:autoloader_path, "::")
 
 if !exists("no_plugin_maps") && !exists("no_puppet_maps")
     if !hasmapto("<Plug>AlignRange")
