@@ -40,7 +40,6 @@ set tildeop       " case change with movement rather than single char
 
 set showmatch       " show matching brackets
 set matchtime=5     " how many tenths of a second to blink matching brackets for
-set matchpairs+=<:> " add '<' and '>' to matching
 
 set hlsearch		" highlight search on by default
 
