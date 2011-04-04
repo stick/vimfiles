@@ -17,28 +17,51 @@ setlocal keywordprg=pi
 setlocal iskeyword+=:
 
 " The assumption is that each module is a repo
-" modulename = git rev-parse --show-toplevel (full path so needs a dirname)
-" autoloader = git rev-parse --show-prefix (will include manifests dir)
-" we set these as buffer scope so they can have different values per file
-" I use in templates but may be useful during editing or whatever
+" if it's not you'll get some extra pathings
+" Exported vars
+"   classname
+"   modulename
+"   classpath
 
-" define array for autoloader
-let b:autoloader_path = []
+function! s:SetModuleVars(rcs)
 
-" get the module name
-let b:module_name = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":t")
-call add(b:autoloader_path, b:module_name)
+  if a:rcs == "git"   " when we use get we need to move dirs to figure out the relative tree
+    let l:module_path = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":p")
+    let b:module_name = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":t")
+    let l:tree_to_file = split(fnamemodify(system("git rev-parse --show-prefix " . shellescape(expand("%:h")))[:-2], ":s?manifests??"), '/')
+  else
+    " we rely on the cwd being at the top of the module
+    let b:module_path = fnamemodify(getcwd(), ":p")
+    let b:module_name = fnamemodify(l:module_path, ":t")
+    let l:tree_to_file = split(fnamemodify(expand("%:r"), ":s?manifests??"), '/')
+  endif
+  
+  " define array for autoloader
+  let l:manifests_path = '**;' . l:module_path
+  let l:manifests = finddir("manifests", manifests_path) " look for a manifests dir
+  if exists(manifests)
+    let l:autoloader_path = []
+    call add(l:autoloader_path, b:module_name)   " module name first
+    let l:autoloader_path += l:tree_to_file      " autoloader path
+    let b:classname = expand("%:t:r")            " filename tail without ext
+    call add(l:autoloader_path, b:classname)
 
-" relative position to top of the repo - minus manifests
-let b:autoloader_prefix = split(fnamemodify(system("git rev-parse --show-prefix")[:-2], ":s?manifests??"), '/')
-let b:autoloader_path += b:autoloader_prefix
+    let b:classpath = join(l:autoloader_path, "::")
+  else
+    let b:classpath = expand("%:t:r")
+    let b:classname = b:classpath
+  endif
+endfunction
 
-" get the filename no ext
-let b:classname = expand("%:r")
-call add(b:autoloader_path, b:classname)
+" check for various rcs's
+call system("git rev-parse")
+if ! v:shell_error
+  call s:SetModuleVars("git")
+endif
 
-" classpath is a string of it all
-let b:classpath = join(b:autoloader_path, "::")
+
+" Alignment functions and maps
+" ----------------------------
 
 if !exists("no_plugin_maps") && !exists("no_puppet_maps")
     if !hasmapto("<Plug>AlignRange")
