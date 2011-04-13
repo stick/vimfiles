@@ -51,9 +51,12 @@
 [submodule "bundle/gitolite.vim"]
 	path = bundle/gitolite.vim
 	url = https://github.com/tmatilai/gitolite.vim.git
+  ignore = untracked
 [submodule "bundle/vim-template"]
 	path = bundle/vim-template
 	url = https://github.com/thinca/vim-template.git
+  ignore = untracked
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git
+  ignore = untracked
