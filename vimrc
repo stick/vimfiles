@@ -41,14 +41,18 @@ set tildeop       " case change with movement rather than single char
 set showmatch       " show matching brackets
 set matchtime=5     " how many tenths of a second to blink matching brackets for
 
-set hlsearch		" highlight search on by default
+set hlsearch    " highlight search on by default
 
-set noincsearch		" move curser as you type search terms
+set noincsearch   " move curser as you type search terms
 set autoread            " auto read in files that have changed underneath
 set shellcmdflag=-lc  " set the ! shell to be a login shell to get at functions and aliases
 
 set listchars=nbsp:¶,eol:¬,tab:>-,extends:»,precedes:«,trail:• " characters to use for 'specical' characters and non-printables
-set colorcolumn=80    " highlight the 80th column
+
+" settings requiring the latest vim
+if version >= 703
+  set colorcolumn=80    " highlight the 80th column
+endif
 
 
 " don't remove indents for comments
@@ -70,11 +74,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 set nomousefocus        " focus does not follow mouse
-" set wh=1 		" minimal number of lines used for the current window
-" set wmh=1 		" minimal number of lines used for any window
-" set equalalways 	" make all windows the same size when adding/removing windows
-set splitbelow 		" a new window is put below the current one
-set splitright 		" a new vertical window is right of the current one
+" set wh=1    " minimal number of lines used for the current window
+" set wmh=1     " minimal number of lines used for any window
+" set equalalways   " make all windows the same size when adding/removing windows
+set splitbelow    " a new window is put below the current one
+set splitright    " a new vertical window is right of the current one
 
 " unmap F1 - stupid help key
 inoremap <F1> <ESC>
@@ -195,3 +199,9 @@ vmap <LEADER>= :Align =><CR>
 
 " lazy git commit
 nmap <LEADER>g :Gcommit<CR>
+
+" map for syntastic errors window
+nnoremap <LEADER>e :Errors<CR>
+
+" autoclose syntastic's error windown when no errors
+let g:syntastic_auto_loc_list=2

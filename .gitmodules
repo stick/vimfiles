@@ -51,3 +51,9 @@
 [submodule "bundle/gitolite.vim"]
 	path = bundle/gitolite.vim
 	url = https://github.com/tmatilai/gitolite.vim.git
+[submodule "bundle/vim-template"]
+	path = bundle/vim-template
+	url = https://github.com/thinca/vim-template.git
+[submodule "bundle/gist-vim"]
+	path = bundle/gist-vim
+	url = https://github.com/mattn/gist-vim.git
