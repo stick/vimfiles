@@ -25,31 +25,39 @@ setlocal iskeyword+=:
 
 function! s:SetModuleVars(rcs)
 
-  if a:rcs == "git"   " when we use get we need to move dirs to figure out the relative tree
+  if a:rcs == "git"   " when we use git we need to move dirs to figure out the relative tree
+    " full path of top of module
     let l:module_path = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":p")
+    " name of module, no path
     let b:module_name = fnamemodify(system("git rev-parse --show-toplevel")[:-2], ":t")
-    let l:tree_to_file = split(fnamemodify(system("git rev-parse --show-prefix " . shellescape(expand("%:h")))[:-2], ":s?manifests??"), '/')
-  else
-    " we rely on the cwd being at the top of the module
-    let b:module_path = fnamemodify(getcwd(), ":p")
+    " path from top of repo to cwd
+    let l:top_to_cwd = system("git rev-parse --show-prefix")[:-2]
+  else " we rely on the cwd being at the top of the module
+    " full path of top of module
+    let l:module_path = fnamemodify(getcwd(), ":p")
+    " name of module, no path
     let b:module_name = fnamemodify(l:module_path, ":t")
-    let l:tree_to_file = split(fnamemodify(expand("%:r"), ":s?manifests??"), '/')
+    " path from top of repo to cwd
+    let l:top_to_cwd = ""
   endif
   
-  " define array for autoloader
-  let l:manifests_path = '**;' . l:module_path
-  let l:manifests = finddir("manifests", manifests_path) " look for a manifests dir
-  if exists(manifests)
-    let l:autoloader_path = []
-    call add(l:autoloader_path, b:module_name)   " module name first
-    let l:autoloader_path += l:tree_to_file      " autoloader path
-    let b:classname = expand("%:t:r")            " filename tail without ext
-    call add(l:autoloader_path, b:classname)
+  " relative path to file being edited
+  let l:cwd_to_file = expand("%:r")
+  " dump each thing into an array
+  let b:loader_array = []
+  " add compoonents in order split on / if needed
+  call add(b:loader_array, b:module_name)
+  let b:loader_array += split(l:top_to_cwd, '/')
+  let b:loader_array += split(l:cwd_to_file, '/')
+  call remove(b:loader_array, index(b:loader_array, "manifests"))
 
-    let b:classpath = join(l:autoloader_path, "::")
+  " if we can find a manifests directory we are in a module
+  let l:manifests_path = '**;' . l:module_path
+  let l:manifests = finddir("manifests", l:manifests_path) " look for a manifests dir
+  if exists("l:manifests")
+    let b:classpath = join(b:loader_array, "::")
   else
-    let b:classpath = expand("%:t:r")
-    let b:classname = b:classpath
+    let b:classpath = ""
   endif
 endfunction
 
@@ -57,6 +65,8 @@ endfunction
 call system("git rev-parse")
 if ! v:shell_error
   call s:SetModuleVars("git")
+else
+  call s:SetModuleVars("")
 endif
 
 
