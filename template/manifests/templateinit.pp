@@ -1,9 +1,11 @@
-# Class: <modulename>
-#
-# == Parameters
-#
-# [*sample_bar*]
-#   Description of this parameter.
+:silent! %s/\['modulename'\]/\=b:module_name/g
+:silent! %s/\['classpath'\]/\=b:classpath/g
+:if search('<+CURSOR+>')
+: normal! "_da>
+:endif
+# Class: ['classpath']
+#   init base classes should generally not do much but include
+#   other classes and set variables
 #
 # == Variables
 #
@@ -13,17 +15,8 @@
 # == Examples
 #
 #   $example_var = "blah"
-#   include <modulename>
+#   include ['modulename']
 #
-# == Authors
-#
-# <fullname> <<email_address>>
-#
-# == Copyright
-#
-# Copyright <year> <company_name>, unless otherwise noted.
-#
-class <modulename> {
-
-
+class ['modulename'] {
+  <+CURSOR+>
 }

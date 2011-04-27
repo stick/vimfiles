@@ -1,4 +1,4 @@
-:silent! %s/\['modulename'\]/\=b:modulename/g
+:silent! %s/\['modulename'\]/\=b:module_name/g
 :silent! %s/\['classpath'\]/\=b:classpath/g
 :if search('<+CURSOR+>')
 : normal! "_da>
