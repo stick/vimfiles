@@ -2,7 +2,9 @@
 let mapleader = ','
 
 " set colorscheme
-colorscheme ir_black
+if &t_Co >= 256 || has('gui_running')
+  colorscheme ir_black
+endif
 
 " Variables for template interpolation
 let email_address = "cmacleod@airdat.com"
@@ -47,11 +49,10 @@ set noincsearch   " move curser as you type search terms
 set autoread            " auto read in files that have changed underneath
 set shellcmdflag=-lc  " set the ! shell to be a login shell to get at functions and aliases
 
-set listchars=nbsp:¶,eol:¬,tab:>-,extends:»,precedes:«,trail:• " characters to use for 'specical' characters and non-printables
-
 " settings requiring the latest vim
 if version >= 703
   set colorcolumn=80    " highlight the 80th column
+  set listchars=nbsp:¶,eol:¬,tab:>-,extends:»,precedes:«,trail:• " characters to use for 'specical' characters and non-printables
 endif
 
 

@@ -67,3 +67,6 @@
 [submodule "bundle/vim-pastie"]
 	path = bundle/vim-pastie
 	url = https://github.com/tpope/vim-pastie.git
+[submodule "bundle/puppet-vim"]
+	path = bundle/puppet-vim
+	url = https://github.com/ajf/puppet-vim.git
