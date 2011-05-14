@@ -13,9 +13,6 @@ let b:did_ftplugin = 1
 " set keyword program
 setlocal keywordprg=pi
 
-" add : <colon> as a word keyword
-setlocal iskeyword+=:
-
 " The assumption is that each module is a repo
 " if it's not you'll get some extra pathings
 " Exported vars
