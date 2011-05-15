@@ -63,7 +63,7 @@
 [submodule "bundle/textile.vim"]
 	path = bundle/textile.vim
 	url = https://github.com/timcharper/textile.vim.git
-  ignore = untracked
+  ignore = untracked, modified
 [submodule "bundle/vim-pastie"]
 	path = bundle/vim-pastie
 	url = https://github.com/tpope/vim-pastie.git
