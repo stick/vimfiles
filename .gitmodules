@@ -69,4 +69,4 @@
 	url = https://github.com/tpope/vim-pastie.git
 [submodule "bundle/puppet-vim"]
 	path = bundle/puppet-vim
-	url = https://github.com/ajf/puppet-vim.git
+	url = git@github.com:stick/puppet-vim.git
