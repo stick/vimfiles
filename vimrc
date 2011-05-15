@@ -208,4 +208,4 @@ nnoremap <LEADER>e :Errors<CR>
 let g:syntastic_auto_loc_list=2
 
 " enable puppet module detection
-let g:puppet_module_support=1
+let g:puppet_module_detect=1
