@@ -67,6 +67,7 @@
 [submodule "bundle/vim-pastie"]
 	path = bundle/vim-pastie
 	url = https://github.com/tpope/vim-pastie.git
+  ignore = untracked
 [submodule "bundle/puppet-vim"]
 	path = bundle/puppet-vim
 	url = git@github.com:stick/puppet-vim.git
