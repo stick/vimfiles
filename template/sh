@@ -16,15 +16,6 @@ usage() {
     exit $1
 }
 
-#while getopts vf:? opt; do
-#    case "$opt" in
-#        v) verbose="yes";;
-#        f) filename=$OPTARG;;
-#        \?) usage 0;;
-#    esac
-#done
-
-
 while true; do
     case "$1" in
         --help)
