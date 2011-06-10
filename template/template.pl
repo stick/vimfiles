@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use Data::Dumper;
-use Getopt::Long;
+use Getopt::Long qw( auto_help );
 
 my $usage = <<EOU;
 Usage:
