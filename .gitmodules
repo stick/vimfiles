@@ -71,3 +71,6 @@
 [submodule "bundle/puppet-vim"]
 	path = bundle/puppet-vim
 	url = git@github.com:stick/puppet-vim.git
+[submodule "bundle/vim-rails"]
+	path = bundle/vim-rails
+	url = http://github.com/tpope/vim-rails
