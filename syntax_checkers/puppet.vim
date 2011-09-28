@@ -26,7 +26,7 @@ endif
 
 " this works for parseonly
 function! SyntaxCheckers_puppet_GetLocList()
-    let makeprg = 'puppet --color false --parseonly --loadclasses --ignoreimport '.shellescape(expand('%'))
+    let makeprg = 'puppet parser validate --color false --ignoreimport '.shellescape(expand('%'))
     let errorformat  = 'err: Could not parse for environment %s:'
     let errorformat .= ' %m'
     let errorformat .= ' at %f:%l'
