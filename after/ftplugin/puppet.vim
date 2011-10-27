@@ -31,8 +31,8 @@ function! s:SetModuleVars()
     let b:search_path = './**'
     let b:search_path = b:search_path . ';' . getcwd() . ';' . g:puppet_stop_dirs
     let b:initpp = findfile("init.pp", b:search_path) " find an init.pp up or down
-  endif 
-  
+  endif
+
   " find what we assume to be our module dir
   let b:module_path = fnamemodify(b:initpp, ":p:h:h") " full path to module name
   let b:module_name = fnamemodify(b:module_path, ":t") " just the module name
@@ -48,7 +48,7 @@ function! s:SetModuleVars()
     let b:classname = expand("%:t:r")
   endif
 
-  " if we don't start with a word we didn't replace the module_path 
+  " if we don't start with a word we didn't replace the module_path
   " probably b/c we couldn't find an init.pp / not a module
   " so we assume that root of the filename is the class (sane for throwaway
   " manifests
