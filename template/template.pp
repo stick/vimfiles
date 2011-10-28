@@ -5,15 +5,19 @@
 :endif
 # Class: ['classpath']
 #
-# == Variables
+# This class does stuff that you describe here
 #
-# [*$foo_var*]
-#     Description of this variable
+# Parameters:
+#   $parameter:
+#       this global variable is used to do things
 #
-# == Examples
+# Actions:
+#   Actions should be described here
 #
-#   $example_var = "blah"
-#   include ['classpath']
+# Requires:
+#   - Package["foopackage"]
+#
+# Sample Usage:
 #
 class ['classpath'] {
   <+CURSOR+>
