@@ -89,6 +89,10 @@ vnoremap <F1> <ESC>
 nnoremap <silent><leader>l :%s/\v\s+$//g<cr>
 nnoremap <silent><Leader>i :set invlist<CR>
 
+" reformats entire file based on current indent/syntax settings, then resets
+" cursor to last position
+noremap <silent><leader>k gg=G``
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
