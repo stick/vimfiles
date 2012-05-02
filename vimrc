@@ -242,3 +242,9 @@ let g:syntastic_auto_loc_list=2
 
 " enable puppet module detection
 let g:puppet_module_detect=1
+
+" split window movement mappings
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silen> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
