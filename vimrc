@@ -146,14 +146,18 @@ if &term =~ "xterm"
     fixdel
 endif
 
-" set title for screen
+" set title for screen use iconstring to set it correctly for tmux as well
 if &term =~ "screen"
-  set t_ts=k
-  set t_fs=\
+  set t_ts=]2;
+  set t_fs=
   set title
+  set t_IS=k
+  set t_IE=\
+  set icon
 endif
 
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set iconstring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 let &titleold=getcwd()
 
 " Appends / insert current date
