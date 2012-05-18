@@ -36,7 +36,7 @@ set shiftwidth=2  " # of spaces for auto indent
 set smarttab      " smart tab (shiftwidth v tabstop)
 set tw=0          " no textwidth set by default
 set modeline      " enable modelines
-set modelines=1   " number of modelines to read
+set modelines=3   " number of modelines to read
 set tildeop       " case change with movement rather than single char
 
 set showmatch       " show matching brackets
