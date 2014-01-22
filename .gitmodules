@@ -83,3 +83,6 @@
 [submodule "bundle/tracwiki"]
 	path = bundle/tracwiki
 	url = https://github.com/vim-scripts/tracwiki.git
+[submodule "bundle/vim-ansible-yaml"]
+	path = bundle/vim-ansible-yaml
+	url = git://github.com/chase/vim-ansible-yaml.git
