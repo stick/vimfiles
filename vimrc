@@ -104,17 +104,17 @@ if has("autocmd")
 
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+    au!
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
 
   augroup END
 
@@ -128,12 +128,12 @@ endif " has("autocmd")
 " gui settings go in ~/.gvimrc
 if has("gui_running")
 else
-    "set bg=dark
+  "set bg=dark
 endif
 
 " turn on syntax if we are in a color terminal
 if &t_Co > 1
-    syntax on
+  syntax on
 endif
 
 " allow the . to execute once for each line of a visual selection
@@ -141,9 +141,9 @@ vnoremap . :normal .<CR>
 
 " xterm specifics
 if &term =~ "xterm"
-    set title
-    set t_kb=
-    fixdel
+  set title
+  set t_kb=
+  fixdel
 endif
 
 " set title for screen use iconstring to set it correctly for tmux as well
