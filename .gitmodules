@@ -86,3 +86,12 @@
 [submodule "bundle/vim-ansible-yaml"]
 	path = bundle/vim-ansible-yaml
 	url = git://github.com/chase/vim-ansible-yaml.git
+[submodule "bundle/vim-javascript-syntax"]
+	path = bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle/vim-indent-guides"]
+	path = bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle/vim-javascript.git"]
+	path = bundle/vim-javascript.git
+	url = https://github.com/pangloss/vim-javascript.git

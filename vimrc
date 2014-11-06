@@ -181,6 +181,9 @@ if v:version >= 703
 endif
 
 
+let g:javascript_conceal = 1
+let javascript_enable_domhtmlcss = 1
+let b:javascript_fold = 1
 " -------------------------------------
 " GNUPG plugin settings
 " -------------------------------------
@@ -235,6 +238,16 @@ let g:SuperTabDefaultCompletionType = "context"
 " map the align command to align fat comma's, do need to visual select first
 vmap <LEADER>= :Align =><CR>
 
+" fold settings for copressing code/etc
+set foldmethod=syntax
+set foldlevelstart=20
+
+" map keys to fold commands za is tedious
+inoremap <LEADER>f <C-O>za
+nnoremap <LEADER>f za
+onoremap <LEADER>f <C-C>za
+vnoremap <LEADER>f zf
+
 " lazy git commit
 nmap <LEADER>g :Gcommit<CR>
 
@@ -245,8 +258,8 @@ nnoremap <LEADER>e :Errors<CR>
 let g:syntastic_auto_loc_list=2
 
 " syntastic checking mode
-let g:syntastic_mode_map = { 'mode': 'active',                              
-      \ 'active_filetypes': ['ruby', 'python', 'perl', 'shell', 'puppet' ],           
+let g:syntastic_mode_map = { 'mode': 'active',
+      \ 'active_filetypes': ['ruby', 'python', 'perl', 'shell', 'puppet' ],
       \ 'passive_filetypes': ['php', 'html'] }
 
 " check syntax on file open
