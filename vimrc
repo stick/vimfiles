@@ -252,7 +252,7 @@ vnoremap <LEADER>f zf
 nmap <LEADER>g :Gcommit<CR>
 
 " map for syntastic errors window
-nnoremap <LEADER>e :Errors<CR>
+nnoremap <silent> <LEADER>e :<C-u>call ToggleErrors()<CR>
 
 " autoclose syntastic's error windown when no errors
 let g:syntastic_auto_loc_list=2
@@ -264,6 +264,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 " check syntax on file open
 let g:syntastic_check_on_open=1
+
+" haml lint
+let g:syntastic_haml_checkers = ['haml_lint']
 
 " enable puppet module detection
 let g:puppet_module_detect=1
