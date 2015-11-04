@@ -236,7 +236,7 @@ nnoremap <silent><leader>t :TlistToggle<CR>
 let g:SuperTabDefaultCompletionType = "context"
 
 " map the align command to align fat comma's, do need to visual select first
-vmap <LEADER>= :Align =><CR>
+" vmap <LEADER>= :Align =><CR>
 
 " fold settings for copressing code/etc
 set foldmethod=syntax
@@ -253,9 +253,13 @@ nmap <LEADER>g :Gcommit<CR>
 
 " map for syntastic errors window
 nnoremap <silent> <LEADER>e :<C-u>call ToggleErrors()<CR>
+nnoremap <silent> <LEADER>E :lnext<CR>
 
 " autoclose syntastic's error windown when no errors
 let g:syntastic_auto_loc_list=2
+
+" always update location list
+let g:syntastic_always_populate_loc_list = 1
 
 " syntastic checking mode
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -274,5 +278,5 @@ let g:puppet_module_detect=1
 " split window movement mappings
 nmap <silent> <A-Up> :wincmd k<CR>
 nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silen> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
 nmap <silent> <A-Right> :wincmd l<CR>
