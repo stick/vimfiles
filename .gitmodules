@@ -98,3 +98,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "bundle/vim-markdown-preview"]
+	path = bundle/vim-markdown-preview
+	url = https://github.com/JamshedVesuna/vim-markdown-preview.git
